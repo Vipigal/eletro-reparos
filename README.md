@@ -14,4 +14,36 @@ Ele faz parte de um sistema de gestão para uma oficina de conserto de eletrodom
 
 ### Rodando via Docker
 
-- Inicie os serviços com o comando ´´´docker compose up´´´
+- Inicie os serviços com o comando 
+```bash
+docker compose up
+```
+- Navegue para o endereço http:localhost:3000/api e teste as rotas.
+
+### Rodando via NPM
+
+- Instale as dependências do projeto com
+```bash
+npm install
+```
+
+- Rode o projeto em ambiente de desenvolvimento utilizando
+```bash
+npm run dev
+```
+
+### Rodando os testes da aplicação
+
+- Instale as dependências do projeto com
+```bash
+npm install
+```
+
+- Rode os testes com o comando
+```bash
+npm run test
+```
+
+
+
+
