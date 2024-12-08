@@ -1,4 +1,4 @@
-import { Orcamento } from "../../dominio/entidades/orcamento/orcamento.entidade";
+import { Orcamento } from "../../dominio/entidades/orcamento.entidade";
 
 export interface IRepositorioOrcamento {
   buscarPorId(id: string): Promise<Orcamento | null>;

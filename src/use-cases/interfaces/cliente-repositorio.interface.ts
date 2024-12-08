@@ -1,4 +1,4 @@
-import { Cliente } from "../../dominio/entidades/cliente/cliente.entidade";
+import { Cliente } from "../../dominio/entidades/cliente.entidade";
 
 export interface IRepositorioClientes {
   buscarPorId(id: string): Promise<Cliente | null>;

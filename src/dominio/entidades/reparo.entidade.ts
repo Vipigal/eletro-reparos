@@ -1,4 +1,4 @@
-import { uuid } from "../../types/genericos";
+import { uuid } from "../types/genericos";
 
 export class Reparo {
   public readonly id!: uuid;

@@ -1,9 +1,9 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { SolicitarOrcamentoInput } from "./solicitar-orcamento.input";
 import { IRepositorioClientes } from "../interfaces/cliente-repositorio.interface";
-import { Cliente } from "../../dominio/entidades/cliente/cliente.entidade";
-import { Aparelho } from "../../dominio/entidades/aparelho/aparelho.entidade";
-import { Orcamento } from "../../dominio/entidades/orcamento/orcamento.entidade";
+import { Cliente } from "../../dominio/entidades/cliente.entidade";
+import { Aparelho } from "../../dominio/entidades/aparelho.entidade";
+import { Orcamento } from "../../dominio/entidades/orcamento.entidade";
 import { IRepositorioAparelho } from "../interfaces/aparelho-repositorio.interface";
 import { IRepositorioOrcamento } from "../interfaces/orcamento-repositorio.interface";
 import { SolicitarOrcamentoOutput } from "./solicitar-orcamento.output";

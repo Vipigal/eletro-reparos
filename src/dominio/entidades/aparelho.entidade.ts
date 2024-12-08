@@ -1,5 +1,5 @@
-import { IAparelho } from "../../interfaces/aparelho.interface";
-import { uuid } from "../../types/genericos";
+import { IAparelho } from "../interfaces/aparelho.interface";
+import { uuid } from "../types/genericos";
 
 export class Aparelho implements IAparelho {
   public readonly id: uuid;

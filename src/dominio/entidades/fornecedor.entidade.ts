@@ -1,4 +1,4 @@
-import { IFornecedor } from "../../interfaces/fornecedor.interface";
+import { IFornecedor } from "../interfaces/fornecedor.interface";
 
 export class Fornecedor implements IFornecedor {
   public readonly id!: string;
