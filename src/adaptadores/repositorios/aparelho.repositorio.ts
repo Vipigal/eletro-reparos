@@ -4,6 +4,7 @@ import { InjectModel } from "@nestjs/sequelize";
 import { Aparelho } from "../../dominio/entidades/aparelho.entidade";
 import { AparelhoModel } from "../models/aparelho.model";
 import { IRepositorioAparelho } from "../../use-cases/interfaces/aparelho-repositorio.interface";
+import { uuid } from "../../dominio/types/genericos";
 
 @Injectable()
 export class RepositorioAparelhos implements IRepositorioAparelho {
@@ -14,6 +15,16 @@ export class RepositorioAparelhos implements IRepositorioAparelho {
 
   async buscarPorId(id: string): Promise<Aparelho | null> {
     const registro = await this.aparelhoModel.findByPk(id);
+    return registro ? this.mapToEntity(registro) : null;
+  }
+
+  async buscarPorSerial(
+    serial: string,
+    id_cliente: uuid
+  ): Promise<Aparelho | null> {
+    const registro = await this.aparelhoModel.findOne({
+      where: { serial, id_cliente },
+    });
     return registro ? this.mapToEntity(registro) : null;
   }
 
