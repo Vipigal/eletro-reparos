@@ -1,8 +1,9 @@
 import { Module } from "@nestjs/common";
-import { SolicitarOrcamentoModule } from "./solicitar-orcamento/solicitar-orcamento.module";
+import { SolicitarOrcamentoUseCase } from "./solicitar-orcamento/solicitar-orcamento.use-case";
+import { UsuariosUseCase } from "./usuarios/usuarios.use-case";
 
 @Module({
-  imports: [SolicitarOrcamentoModule],
-  exports: [SolicitarOrcamentoModule],
+  providers: [SolicitarOrcamentoUseCase, UsuariosUseCase],
+  exports: [SolicitarOrcamentoUseCase, UsuariosUseCase],
 })
 export class UseCaseModule {}

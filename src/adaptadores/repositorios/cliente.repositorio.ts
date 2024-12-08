@@ -42,8 +42,9 @@ export class RepositorioClientes implements IRepositorioClientes {
   }
 
   async salvar(cliente: Cliente): Promise<Cliente> {
-    const created = await this.usuarioModel.create(this.mapFromEntity(cliente));
-    return this.mapToEntity(created);
+    const model: UsuarioModel = this.mapFromEntity(cliente);
+    await model.save();
+    return this.mapToEntity(model);
   }
 
   async atualizar(

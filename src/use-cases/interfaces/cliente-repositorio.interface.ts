@@ -5,6 +5,6 @@ export interface IRepositorioClientes {
   buscarPorEmail(email: string): Promise<Cliente | null>;
   buscarPorCPF(cpf: string): Promise<Cliente | null>;
   buscarTodos(): Promise<Cliente[]>;
-  salvar(cliente: Cliente): Promise<Cliente>;
+  salvar(cliente: Partial<Cliente>): Promise<Cliente>;
   deletar(id: string): Promise<void>;
 }

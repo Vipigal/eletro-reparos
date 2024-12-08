@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from "@nestjs/common";
-import { SolicitarOrcamentoUseCase } from "../../../use-cases/solicitar-orcamento/solicitar-orcamento.use-case";
 import type { SolicitarOrcamentoInput } from "../../../use-cases/solicitar-orcamento/solicitar-orcamento.input";
-import { Cliente } from "../../../dominio/cliente/cliente.entidade";
+import { SolicitarOrcamentoOutput } from "../../../use-cases/solicitar-orcamento/solicitar-orcamento.output";
+import { SolicitarOrcamentoUseCase } from "../../../use-cases/solicitar-orcamento/solicitar-orcamento.use-case";
 
 @Controller("orcamentos")
 export class OrcamentoController {
@@ -12,7 +12,7 @@ export class OrcamentoController {
   @Post()
   public async solicitarOrcamento(
     @Body() request: SolicitarOrcamentoInput
-  ): Promise<Cliente[]> {
+  ): Promise<SolicitarOrcamentoOutput> {
     return await this.solicitarOrcamentoUseCase.input(request);
   }
 }
