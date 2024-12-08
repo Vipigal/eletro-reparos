@@ -2,7 +2,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
 import { IRepositorioOrcamento } from "../../use-cases/interfaces/orcamento-repositorio.interface";
-import { Orcamento } from "../../dominio/orcamento/orcamento.entidade";
+import { Orcamento } from "../../dominio/entidades/orcamento/orcamento.entidade";
 import { OrcamentoModel } from "../models/orcamento.model";
 
 @Injectable()

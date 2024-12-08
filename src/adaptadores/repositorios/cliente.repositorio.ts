@@ -1,6 +1,6 @@
 import { InjectModel } from "@nestjs/sequelize";
 import { IRepositorioClientes } from "../../use-cases/interfaces/cliente-repositorio.interface";
-import { Cliente } from "../../dominio/cliente/cliente.entidade";
+import { Cliente } from "../../dominio/entidades/cliente/cliente.entidade";
 import { CargoUsuarioEnum } from "../../dominio/interfaces/usuario.interface";
 import { UserUtils } from "../../dominio/utils/user.utils";
 import { Injectable } from "@nestjs/common";

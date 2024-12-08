@@ -1,5 +1,5 @@
-import { CargoUsuarioEnum, IUsuario } from "../interfaces/usuario.interface";
-import { uuid } from "../types/genericos";
+import { CargoUsuarioEnum, IUsuario } from "../../interfaces/usuario.interface";
+import { uuid } from "../../types/genericos";
 
 export class Cliente implements IUsuario {
   public readonly id: uuid;

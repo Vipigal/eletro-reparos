@@ -1,4 +1,4 @@
-import { Aparelho } from "../../dominio/aparelho/aparelho.entidade";
+import { Aparelho } from "../../dominio/entidades/aparelho/aparelho.entidade";
 
 export interface IRepositorioAparelho {
   buscarPorId(id: string): Promise<Aparelho | null>;

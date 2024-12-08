@@ -1,7 +1,7 @@
 // src/adaptadores/repositorios/aparelho.repositorio.ts
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
-import { Aparelho } from "../../dominio/aparelho/aparelho.entidade";
+import { Aparelho } from "../../dominio/entidades/aparelho/aparelho.entidade";
 import { AparelhoModel } from "../models/aparelho.model";
 import { IRepositorioAparelho } from "../../use-cases/interfaces/aparelho-repositorio.interface";
 

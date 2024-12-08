@@ -1,5 +1,5 @@
-import { IPeca } from "../interfaces/peca.interface";
-import { uuid } from "../types/genericos";
+import { IPeca } from "../../interfaces/peca.interface";
+import { uuid } from "../../types/genericos";
 
 export class Peca implements IPeca {
   public readonly id!: uuid;

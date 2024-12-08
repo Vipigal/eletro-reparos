@@ -1,5 +1,5 @@
-import { IOrcamento } from "../interfaces/orcamento.interface";
-import { uuid } from "../types/genericos";
+import { IOrcamento } from "../../interfaces/orcamento.interface";
+import { uuid } from "../../types/genericos";
 
 export class Orcamento implements IOrcamento {
   public readonly id!: uuid;

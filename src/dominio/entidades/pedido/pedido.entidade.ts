@@ -1,5 +1,5 @@
-import { IPedido } from "../interfaces/pedido.interface";
-import { uuid } from "../types/genericos";
+import { IPedido } from "../../interfaces/pedido.interface";
+import { uuid } from "../../types/genericos";
 
 export class Pedido implements IPedido {
   public readonly id!: uuid;

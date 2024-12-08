@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { UsuarioModel } from "../../adaptadores/models/usuario.model";
+import { models } from "../../adaptadores/models/models";
 
 @Module({
   imports: [
@@ -14,7 +14,7 @@ import { UsuarioModel } from "../../adaptadores/models/usuario.model";
       autoLoadModels: true,
       synchronize: true,
       logging: false,
-      models: [UsuarioModel],
+      models: models,
     }),
   ],
   exports: [SequelizeModule],
