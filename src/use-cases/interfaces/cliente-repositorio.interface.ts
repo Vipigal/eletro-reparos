@@ -1,0 +1,10 @@
+import { Cliente } from "../../dominio/cliente/cliente.entidade";
+
+export interface IRepositorioClientes {
+  buscarPorId(id: string): Promise<Cliente | null>;
+  buscarPorEmail(email: string): Promise<Cliente | null>;
+  buscarPorCPF(cpf: string): Promise<Cliente | null>;
+  buscarTodos(): Promise<Cliente[]>;
+  salvar(cliente: Cliente): Promise<Cliente>;
+  deletar(id: string): Promise<void>;
+}
