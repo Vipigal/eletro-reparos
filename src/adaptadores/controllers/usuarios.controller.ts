@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from "@nestjs/common";
-import { UsuariosInput } from "../../../use-cases/usuarios/usuarios.input";
-import { UsuariosUseCase } from "../../../use-cases/usuarios/usuarios.use-case";
+import { UsuariosInput } from "../../use-cases/usuarios/usuarios.input";
+import { UsuariosUseCase } from "../../use-cases/usuarios/usuarios.use-case";
 
 @Controller("usuarios")
 export class UsuariosController {

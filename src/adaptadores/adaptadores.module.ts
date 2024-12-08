@@ -1,8 +1,8 @@
 import { Global, Module, Provider } from "@nestjs/common";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { UseCaseModule } from "../use-cases/use-cases.module";
-import { OrcamentoController } from "./controllers/orcamentos/orcamento.controller";
-import { UsuariosController } from "./controllers/usuarios/usuarios.controller";
+import { OrcamentoController } from "./controllers/orcamento.controller";
+import { UsuariosController } from "./controllers/usuarios.controller";
 import { models } from "./models/models";
 import { repositoryProviders } from "./repositorios/repository.providers";
 
