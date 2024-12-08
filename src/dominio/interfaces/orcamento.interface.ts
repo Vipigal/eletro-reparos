@@ -5,4 +5,5 @@ export interface IOrcamento {
   valorMaoDeObra: number;
   valorTotal: number;
   aprovado: boolean;
+  id_cliente: string;
 }

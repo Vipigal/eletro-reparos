@@ -8,6 +8,7 @@ export class Orcamento implements IOrcamento {
   public readonly valorMaoDeObra!: number;
   public readonly valorTotal!: number;
   public readonly aprovado!: boolean;
+  public readonly id_cliente!: uuid;
 
   constructor(entity: Partial<IOrcamento>) {
     Object.assign(this, entity);

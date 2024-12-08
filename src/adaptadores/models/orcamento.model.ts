@@ -6,8 +6,11 @@ import {
   PrimaryKey,
   Default,
   AllowNull,
+  ForeignKey,
+  BelongsTo,
 } from "sequelize-typescript";
 import { IOrcamento } from "../../dominio/interfaces/orcamento.interface";
+import { UsuarioModel } from "./usuario.model";
 
 export interface OrcamentoCreationAttributes extends Omit<IOrcamento, "id"> {}
 
@@ -43,4 +46,12 @@ export class OrcamentoModel
   @AllowNull(false)
   @Column(DataType.BOOLEAN)
   declare aprovado: boolean;
+
+  @ForeignKey(() => UsuarioModel)
+  @AllowNull(false)
+  @Column(DataType.UUID)
+  declare id_cliente: string;
+
+  @BelongsTo(() => UsuarioModel, "id_cliente")
+  declare cliente: UsuarioModel;
 }

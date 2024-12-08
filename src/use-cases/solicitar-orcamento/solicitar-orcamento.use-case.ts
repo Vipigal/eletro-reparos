@@ -59,6 +59,7 @@ export class SolicitarOrcamentoUseCase {
         valorMaoDeObra: 0,
         valorTotal: 0,
         aprovado: false,
+        id_cliente: cliente.id,
       })
     );
 

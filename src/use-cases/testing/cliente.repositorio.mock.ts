@@ -6,6 +6,32 @@ import { IRepositorioClientes } from "../interfaces/cliente-repositorio.interfac
 export class LocalRepositorioClientes implements IRepositorioClientes {
   private clientes: Cliente[] = [];
 
+  async criarMockClientes() {
+    const cliente1 = new Cliente({
+      id: "1",
+      cpf: "123.456.789-00",
+      email: "joao@gmail.com",
+      endereco: "Rua 1 - SP",
+      nome: "Joao",
+      telefone: "31984123812",
+      senha: UserUtils.generatePassword(),
+      cargo: CargoUsuarioEnum.CLIENTE,
+    });
+
+    const cliente2 = new Cliente({
+      id: "2",
+      cpf: "123.456.987-00",
+      email: "marcos@gmail.com",
+      endereco: "Rua 1 - SP",
+      nome: "Marcos",
+      telefone: "319841234812",
+      senha: UserUtils.generatePassword(),
+      cargo: CargoUsuarioEnum.CLIENTE,
+    });
+
+    this.clientes.push(cliente1, cliente2);
+  }
+
   async buscarPorId(id: string): Promise<Cliente | null> {
     return this.clientes.find((cliente) => cliente.id === id) || null;
   }

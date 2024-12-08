@@ -7,6 +7,30 @@ import { UserUtils } from "../../dominio/utils/user.utils";
 export class LocalRepositorioOrcamentos implements IRepositorioOrcamento {
   private orcamentos: Orcamento[] = [];
 
+  async criarMockOrcamentos() {
+    const orcamento1 = new Orcamento({
+      id: "1",
+      aparelhoId: "1",
+      valorPecas: 100,
+      valorMaoDeObra: 50,
+      valorTotal: 150,
+      aprovado: false,
+      id_cliente: "1",
+    });
+
+    const orcamento2 = new Orcamento({
+      id: "2",
+      aparelhoId: "2",
+      valorPecas: 200,
+      valorMaoDeObra: 100,
+      valorTotal: 300,
+      aprovado: false,
+      id_cliente: "2",
+    });
+
+    this.orcamentos.push(orcamento1, orcamento2);
+  }
+
   async buscarPorId(id: uuid) {
     return this.orcamentos.find((orcamento) => orcamento.id === id) || null;
   }
