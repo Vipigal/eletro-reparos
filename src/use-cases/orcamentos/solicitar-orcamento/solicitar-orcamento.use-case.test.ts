@@ -1,10 +1,10 @@
 import { Test } from "@nestjs/testing";
 import { SolicitarOrcamentoUseCase } from "./solicitar-orcamento.use-case";
 import { SolicitarOrcamentoInput } from "./solicitar-orcamento.input";
-import { LocalRepositorioClientes } from "../testing/cliente.repositorio.mock";
-import { LocalRepositorioAparelhos } from "../testing/aparelho.repositorio.mock";
-import { LocalRepositorioOrcamentos } from "../testing/orcamento.repositorio.mock";
-import { provedoresRepositoriosMock } from "../testing/repositories.providers.mock";
+import { LocalRepositorioClientes } from "../../testing/cliente.repositorio.mock";
+import { LocalRepositorioAparelhos } from "../../testing/aparelho.repositorio.mock";
+import { LocalRepositorioOrcamentos } from "../../testing/orcamento.repositorio.mock";
+import { provedoresRepositoriosMock } from "../../testing/repositories.providers.mock";
 import { Provider } from "@nestjs/common";
 
 let useCase: SolicitarOrcamentoUseCase;

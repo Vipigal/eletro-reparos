@@ -1,4 +1,4 @@
-import { uuid } from "../../dominio/types/genericos";
+import { uuid } from "../../../dominio/types/genericos";
 
 // src/use-cases/fornecer-orcamento/fornecer-orcamento.input.ts
 export interface FornecerOrcamentoPecaInput {

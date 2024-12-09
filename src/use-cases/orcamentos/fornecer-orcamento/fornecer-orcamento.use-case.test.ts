@@ -3,15 +3,15 @@ import { Test } from "@nestjs/testing";
 import {
   MARGEM_DE_LUCRO,
   VALOR_MAO_DE_OBRA_TECNICO_POR_HORA,
-} from "../../dominio/constantes/valores";
-import { LocalRepositorioClientes } from "../testing/cliente.repositorio.mock";
-import { LocalRepositorioOrcamentos } from "../testing/orcamento.repositorio.mock";
-import { LocalRepositorioPecas } from "../testing/pecas.repositorio.mock";
-import { provedoresRepositoriosMock } from "../testing/repositories.providers.mock";
+} from "../../../dominio/constantes/valores";
+import { LocalRepositorioClientes } from "../../testing/cliente.repositorio.mock";
+import { LocalRepositorioOrcamentos } from "../../testing/orcamento.repositorio.mock";
+import { LocalRepositorioPecas } from "../../testing/pecas.repositorio.mock";
+import { provedoresRepositoriosMock } from "../../testing/repositories.providers.mock";
 import { FornecerOrcamentoInput } from "./fornecer-orcamento.input";
 import { FornecerOrcamentoOutput } from "./fornecer-orcamento.output";
 import { FornecerOrcamentoUseCase } from "./fornecer-orcamento.use-case";
-import { StatusOrcamentoEnum } from "../../dominio/entidades/orcamento.entidade";
+import { StatusOrcamentoEnum } from "../../../dominio/entidades/orcamento.entidade";
 
 let useCase: FornecerOrcamentoUseCase;
 let repositorioClientes: LocalRepositorioClientes;

@@ -1,16 +1,16 @@
 // src/use-cases/fornecer-orcamento/fornecer-orcamento.use-case.ts
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
-import { IRepositorioOrcamento } from "../interfaces/orcamento-repositorio.interface";
-import { IRepositorioPecas } from "../interfaces/peca-repositorio.interface";
+import { IRepositorioOrcamento } from "../../interfaces/orcamento-repositorio.interface";
+import { IRepositorioPecas } from "../../interfaces/peca-repositorio.interface";
 import { FornecerOrcamentoInput } from "./fornecer-orcamento.input";
 import { FornecerOrcamentoOutput } from "./fornecer-orcamento.output";
 import {
   MARGEM_DE_LUCRO,
   VALOR_MAO_DE_OBRA_TECNICO_POR_HORA,
-} from "../../dominio/constantes/valores";
-import { IEmailService } from "../interfaces/email-service.interface";
-import { IRepositorioClientes } from "../interfaces/cliente-repositorio.interface";
-import { StatusOrcamentoEnum } from "../../dominio/entidades/orcamento.entidade";
+} from "../../../dominio/constantes/valores";
+import { IEmailService } from "../../interfaces/email-service.interface";
+import { IRepositorioClientes } from "../../interfaces/cliente-repositorio.interface";
+import { StatusOrcamentoEnum } from "../../../dominio/entidades/orcamento.entidade";
 
 @Injectable()
 export class FornecerOrcamentoUseCase {
