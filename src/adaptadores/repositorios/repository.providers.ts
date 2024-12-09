@@ -5,7 +5,7 @@ import { RepositorioTecnicos } from "./tecnico.repositorio";
 import { RepositorioAdministradores } from "./administrador.repositorio";
 import { RepositorioPecas } from "./peca.repositorio";
 
-export const repositoryProviders: Record<string, any>[] = [
+export const repositoryProviders = [
   {
     provide: "IRepositorioClientes",
     useClass: RepositorioClientes,

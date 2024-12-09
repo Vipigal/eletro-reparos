@@ -7,10 +7,17 @@ export class Orcamento implements IOrcamento {
   public readonly valorPecas!: number;
   public readonly valorMaoDeObra!: number;
   public readonly valorTotal!: number;
-  public readonly aprovado!: boolean;
+  public readonly status!: StatusOrcamentoEnum;
   public readonly id_cliente!: uuid;
 
   constructor(entity: Partial<IOrcamento>) {
     Object.assign(this, entity);
   }
+}
+
+export enum StatusOrcamentoEnum {
+  APROVADO = "APROVADO",
+  REPROVADO = "REPROVADO",
+  SOLICITADO = "SOLICITADO",
+  FORNECIDO = "FORNECIDO",
 }

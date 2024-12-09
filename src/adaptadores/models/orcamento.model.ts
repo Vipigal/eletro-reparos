@@ -11,6 +11,7 @@ import {
 } from "sequelize-typescript";
 import { IOrcamento } from "../../dominio/interfaces/orcamento.interface";
 import { UsuarioModel } from "./usuario.model";
+import { StatusOrcamentoEnum } from "../../dominio/entidades/orcamento.entidade";
 
 export interface OrcamentoCreationAttributes extends Omit<IOrcamento, "id"> {}
 
@@ -44,8 +45,8 @@ export class OrcamentoModel
   declare valorTotal: number;
 
   @AllowNull(false)
-  @Column(DataType.BOOLEAN)
-  declare aprovado: boolean;
+  @Column(DataType.ENUM(...Object.values(StatusOrcamentoEnum)))
+  declare status: StatusOrcamentoEnum;
 
   @ForeignKey(() => UsuarioModel)
   @AllowNull(false)

@@ -1,5 +1,8 @@
 import { UUIDV4 } from "sequelize";
-import { Orcamento } from "../../dominio/entidades/orcamento.entidade";
+import {
+  Orcamento,
+  StatusOrcamentoEnum,
+} from "../../dominio/entidades/orcamento.entidade";
 import { uuid } from "../../dominio/types/genericos";
 import { IRepositorioOrcamento } from "../interfaces/orcamento-repositorio.interface";
 import { UserUtils } from "../../dominio/utils/user.utils";
@@ -14,7 +17,7 @@ export class LocalRepositorioOrcamentos implements IRepositorioOrcamento {
       valorPecas: 100,
       valorMaoDeObra: 50,
       valorTotal: 150,
-      aprovado: false,
+      status: StatusOrcamentoEnum.SOLICITADO,
       id_cliente: "1",
     });
 
@@ -24,7 +27,7 @@ export class LocalRepositorioOrcamentos implements IRepositorioOrcamento {
       valorPecas: 200,
       valorMaoDeObra: 100,
       valorTotal: 300,
-      aprovado: false,
+      status: StatusOrcamentoEnum.FORNECIDO,
       id_cliente: "2",
     });
 

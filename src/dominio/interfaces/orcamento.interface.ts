@@ -1,9 +1,11 @@
+import { StatusOrcamentoEnum } from "../entidades/orcamento.entidade";
+
 export interface IOrcamento {
   id: string;
   aparelhoId: string;
   valorPecas: number;
   valorMaoDeObra: number;
   valorTotal: number;
-  aprovado: boolean;
+  status: StatusOrcamentoEnum;
   id_cliente: string;
 }

@@ -1,11 +1,14 @@
+import { uuid } from "../../dominio/types/genericos";
+
 // src/use-cases/fornecer-orcamento/fornecer-orcamento.input.ts
 export interface FornecerOrcamentoPecaInput {
-  pecaId: string;
+  pecaId: uuid;
   quantidade: number;
 }
 
 export interface FornecerOrcamentoInput {
-  orcamentoId: string;
+  orcamentoId: uuid;
+  clienteId: uuid;
   pecasNecessarias: FornecerOrcamentoPecaInput[];
   tempoEstimadoHoras: number;
 }

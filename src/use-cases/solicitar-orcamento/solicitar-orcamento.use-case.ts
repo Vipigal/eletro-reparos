@@ -3,7 +3,10 @@ import { SolicitarOrcamentoInput } from "./solicitar-orcamento.input";
 import { IRepositorioClientes } from "../interfaces/cliente-repositorio.interface";
 import { Cliente } from "../../dominio/entidades/cliente.entidade";
 import { Aparelho } from "../../dominio/entidades/aparelho.entidade";
-import { Orcamento } from "../../dominio/entidades/orcamento.entidade";
+import {
+  Orcamento,
+  StatusOrcamentoEnum,
+} from "../../dominio/entidades/orcamento.entidade";
 import { IRepositorioAparelho } from "../interfaces/aparelho-repositorio.interface";
 import { IRepositorioOrcamento } from "../interfaces/orcamento-repositorio.interface";
 import { SolicitarOrcamentoOutput } from "./solicitar-orcamento.output";
@@ -58,7 +61,7 @@ export class SolicitarOrcamentoUseCase {
         valorPecas: 0,
         valorMaoDeObra: 0,
         valorTotal: 0,
-        aprovado: false,
+        status: StatusOrcamentoEnum.SOLICITADO,
         id_cliente: cliente.id,
       })
     );

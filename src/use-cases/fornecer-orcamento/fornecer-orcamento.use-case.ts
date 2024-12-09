@@ -8,6 +8,9 @@ import {
   MARGEM_DE_LUCRO,
   VALOR_MAO_DE_OBRA_TECNICO_POR_HORA,
 } from "../../dominio/constantes/valores";
+import { IEmailService } from "../interfaces/email-service.interface";
+import { IRepositorioClientes } from "../interfaces/cliente-repositorio.interface";
+import { StatusOrcamentoEnum } from "../../dominio/entidades/orcamento.entidade";
 
 @Injectable()
 export class FornecerOrcamentoUseCase {
@@ -15,7 +18,11 @@ export class FornecerOrcamentoUseCase {
     @Inject("IRepositorioOrcamentos")
     private readonly repositorioOrcamentos: IRepositorioOrcamento,
     @Inject("IRepositorioPecas")
-    private readonly repositorioPecas: IRepositorioPecas
+    private readonly repositorioPecas: IRepositorioPecas,
+    @Inject("IRepositorioClientes")
+    private readonly repositorioClientes: IRepositorioClientes,
+    @Inject("IEmailService")
+    private readonly emailService: IEmailService
   ) {}
 
   public async input(
@@ -26,6 +33,15 @@ export class FornecerOrcamentoUseCase {
     );
     if (!orcamento) {
       throw new NotFoundException("Orçamento não encontrado.");
+    }
+
+    if (orcamento.id_cliente !== input.clienteId) {
+      throw new NotFoundException("Cliente não autorizado.");
+    }
+    const cliente = await this.repositorioClientes.buscarPorId(input.clienteId);
+
+    if (!cliente) {
+      throw new NotFoundException("Cliente não encontrado.");
     }
 
     let valorPecas = 0;
@@ -50,9 +66,7 @@ export class FornecerOrcamentoUseCase {
         valorPecas,
         valorMaoDeObra,
         valorTotal,
-        // Nesse estágio, o gerente forneceu o orçamento, mas quem aprova é o cliente,
-        // então "aprovado" continua false.
-        aprovado: false,
+        status: StatusOrcamentoEnum.FORNECIDO,
       }
     );
 
@@ -60,8 +74,11 @@ export class FornecerOrcamentoUseCase {
       throw new Error("Não foi possível atualizar o orçamento.");
     }
 
-    // Opcional: Aqui poderíamos notificar o cliente que o orçamento está disponível,
-    // mas isso dependeria da arquitetura do projeto (um outro use case ou serviço para notificação).
+    await this.emailService.sendEmail(
+      cliente.email,
+      "Orçamento disponível",
+      "Olá, seu orçamento está disponível. Acesse o sistema para mais detalhes."
+    );
 
     return { orcamentoId: orcamentoAtualizado.id, valorTotal };
   }

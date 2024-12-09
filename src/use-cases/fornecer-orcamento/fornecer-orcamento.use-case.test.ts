@@ -1,21 +1,19 @@
 import { Provider } from "@nestjs/common";
 import { Test } from "@nestjs/testing";
-import { SolicitarOrcamentoInput } from "../solicitar-orcamento/solicitar-orcamento.input";
-import { LocalRepositorioAparelhos } from "../testing/aparelho.repositorio.mock";
+import {
+  MARGEM_DE_LUCRO,
+  VALOR_MAO_DE_OBRA_TECNICO_POR_HORA,
+} from "../../dominio/constantes/valores";
 import { LocalRepositorioClientes } from "../testing/cliente.repositorio.mock";
 import { LocalRepositorioOrcamentos } from "../testing/orcamento.repositorio.mock";
 import { LocalRepositorioPecas } from "../testing/pecas.repositorio.mock";
 import { provedoresRepositoriosMock } from "../testing/repositories.providers.mock";
 import { FornecerOrcamentoInput } from "./fornecer-orcamento.input";
-import { FornecerOrcamentoUseCase } from "./fornecer-orcamento.use-case";
 import { FornecerOrcamentoOutput } from "./fornecer-orcamento.output";
-import {
-  MARGEM_DE_LUCRO,
-  VALOR_MAO_DE_OBRA_TECNICO_POR_HORA,
-} from "../../dominio/constantes/valores";
+import { FornecerOrcamentoUseCase } from "./fornecer-orcamento.use-case";
+import { StatusOrcamentoEnum } from "../../dominio/entidades/orcamento.entidade";
 
 let useCase: FornecerOrcamentoUseCase;
-let repositorioAparelhos: LocalRepositorioAparelhos;
 let repositorioClientes: LocalRepositorioClientes;
 let repositorioOrcamentos: LocalRepositorioOrcamentos;
 let repositorioPecas: LocalRepositorioPecas;
@@ -25,11 +23,16 @@ beforeEach(async () => {
     providers: [
       FornecerOrcamentoUseCase,
       ...(provedoresRepositoriosMock as Provider[]),
+      {
+        provide: "IEmailService",
+        useValue: {
+          sendEmail: jest.fn(),
+        },
+      },
     ],
   }).compile();
 
   useCase = moduleRef.get(FornecerOrcamentoUseCase);
-  repositorioAparelhos = await moduleRef.resolve("IRepositorioAparelhos");
   repositorioClientes = await moduleRef.resolve("IRepositorioClientes");
   repositorioOrcamentos = await moduleRef.resolve("IRepositorioOrcamentos");
   repositorioPecas = await moduleRef.resolve("IRepositorioPecas");
@@ -54,6 +57,7 @@ describe("FornecerOrcamentoUseCase", () => {
         },
       ],
       tempoEstimadoHoras: 1,
+      clienteId: "1",
     };
 
     const output: FornecerOrcamentoOutput = await useCase.input(input);
@@ -73,6 +77,7 @@ describe("FornecerOrcamentoUseCase", () => {
         },
       ],
       tempoEstimadoHoras: 1,
+      clienteId: "1",
     };
 
     const peca = await repositorioPecas.buscarPorId("1");
@@ -99,6 +104,7 @@ describe("FornecerOrcamentoUseCase", () => {
         },
       ],
       tempoEstimadoHoras: 1,
+      clienteId: "1",
     };
 
     const output: FornecerOrcamentoOutput = await useCase.input(input);
@@ -107,7 +113,7 @@ describe("FornecerOrcamentoUseCase", () => {
       output.orcamentoId
     );
 
-    expect(orcamento?.aprovado).toBeFalsy();
+    expect(orcamento?.status).toBe(StatusOrcamentoEnum.FORNECIDO);
     expect(orcamento?.valorTotal).toBeGreaterThan(0);
   });
 });
