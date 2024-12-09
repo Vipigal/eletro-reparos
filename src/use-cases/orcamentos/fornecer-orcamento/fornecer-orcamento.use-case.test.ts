@@ -65,6 +65,7 @@ describe("FornecerOrcamentoUseCase", () => {
     expect(output.orcamentoId).toBeDefined();
     expect(output.orcamentoId).toEqual("1");
     expect(output.valorTotal).toBeGreaterThan(0);
+    expect(output.status).toBe(StatusOrcamentoEnum.FORNECIDO);
   });
 
   test("Deve calcular o valor total considerando a hora/trabalho do técnico, os valores das peças e adicionar a margem de lucro", async () => {

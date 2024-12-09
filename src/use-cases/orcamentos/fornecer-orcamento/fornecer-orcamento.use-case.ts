@@ -80,6 +80,10 @@ export class FornecerOrcamentoUseCase {
       "Olá, seu orçamento está disponível. Acesse o sistema para mais detalhes."
     );
 
-    return { orcamentoId: orcamentoAtualizado.id, valorTotal };
+    return {
+      orcamentoId: orcamentoAtualizado.id,
+      valorTotal,
+      status: orcamentoAtualizado.status,
+    };
   }
 }
